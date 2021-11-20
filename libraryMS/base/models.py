@@ -30,7 +30,7 @@ class BookDetails(models.Model):
     language = models.CharField(max_length=30, null=True, blank=True)
     sale_price = models.DecimalField(max_digits=20, decimal_places=2)
     quantity_for_sale = models.IntegerField(null=False, blank=False, default=0)
-    autor_id = models.ForeignKey(
+    author_id = models.ForeignKey(
         Author, on_delete=models.SET_DEFAULT, null=False, default=0)
     category_id = models.ForeignKey(
         CategoryDetails, on_delete=models.SET_DEFAULT, null=False, default=0)
