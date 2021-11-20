@@ -25,6 +25,7 @@ class BookDetails(models.Model):
     book_id = models.AutoField(primary_key=True, editable=False)
     ISBN = models.CharField(max_length=20, null=True, blank=True)
     book_title = models.CharField(max_length=100, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
     publication_year = models.IntegerField(null=False, blank=False, default=0)
     language = models.CharField(max_length=30, null=True, blank=True)
     sale_price = models.DecimalField(max_digits=20, decimal_places=2)

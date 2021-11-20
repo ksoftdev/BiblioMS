@@ -4,6 +4,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .books import books
+from .models import BookDetails, CategoryDetails, Author
+from .serializers import BookDetailsSerializer, AuthorSerializer, CategoryDetailsSerializer
 # Create your views here.
 
 
@@ -29,15 +31,39 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getBooks(request):
-    return Response(books)
+    books = BookDetails.objects.all()
+    serializer = BookDetailsSerializer(books, many=True)
+
+    return Response(serializer.data)
 
 
 @api_view(['GET'])
 def getBook(request, pk):
-    book = None
-    for b in books:
-        if b['_id'] == pk:
-            book = b
-            break
+    book = BookDetails.objects.get(book_id=pk)
+    serializer = BookDetailsSerializer(book, many=False)
 
-    return Response(book)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getAuthors(request):
+    authors = Author.objects.all()
+    serializer = AuthorSerializer(authors, many=True)
+
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getAuthor(request, pk):
+    author = Author.objects.get(author_id=pk)
+    serializer = AuthorSerializer(author, many=False)
+
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getCategories(request):
+    categories = CategoryDetails.objects.all()
+    serializer = CategoryDetailsSerializer(categories, many=True)
+
+    return Response(serializer.data)
