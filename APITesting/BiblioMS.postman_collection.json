@@ -1,0 +1,320 @@
+{
+	"info": {
+		"_postman_id": "e36b6843-0cfd-40de-af3c-bb5562ccab4b",
+		"name": "BiblioMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /api/books/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "isbn",
+							"value": "978-84-344-2665-9",
+							"type": "text"
+						},
+						{
+							"key": "book_title",
+							"value": "Ética para máquinas",
+							"type": "text"
+						},
+						{
+							"key": "publication_year",
+							"value": "2019",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "Español",
+							"type": "text"
+						},
+						{
+							"key": "sale_price",
+							"value": "75000",
+							"type": "text"
+						},
+						{
+							"key": "quantity_for_sale",
+							"value": "33",
+							"type": "text"
+						},
+						{
+							"key": "author_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/api/books/create/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /api/books/update/<id>/",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "isbn",
+							"value": "978-3-16-148410-0",
+							"type": "text"
+						},
+						{
+							"key": "book_title",
+							"value": "The picture of Dorian Gray",
+							"type": "text"
+						},
+						{
+							"key": "publication_year",
+							"value": "1891",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "English",
+							"type": "text"
+						},
+						{
+							"key": "sale_price",
+							"value": "35000",
+							"type": "text"
+						},
+						{
+							"key": "quantity_for_sale",
+							"value": "15",
+							"type": "text"
+						},
+						{
+							"key": "author_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "static/Amazon.png",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/api/books/update/2/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"update",
+						"2",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/books/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/books/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"books",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/books/<id>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/books/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/authors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/authors",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/authors/<id>",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/authors/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"authors",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /api/categories/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/categories",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /api/authors/request/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "author_name",
+							"value": "Oscar",
+							"type": "text"
+						},
+						{
+							"key": "author_surname",
+							"value": "Wilde",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/api/authors/create/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"authors",
+						"create",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /api/books/delete/<id>/",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/books/delete/1/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"books",
+						"delete",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://127.0.0.1:8000"
+		}
+	]
+}
