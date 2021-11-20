@@ -24,7 +24,7 @@ def getRoutes(request):
         '/api/categories/create/',
 
         '/api/books/delete/<id>/',
-        '/api/books/<update>/<id>/',
+        '/api/books/update/<id>/',
     ]
     return Response(routes)
 
@@ -116,4 +116,37 @@ def createCategory(request):
     )
 
     serializer = CategoryDetailsSerializer(category, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['DELETE'])
+# @permission_classes([IsAdminUser])
+def deleteBook(request, pk):
+    book = BookDetails.objects.get(book_id=pk)
+    book.delete()
+    return Response('The item was deleted successfully')
+
+
+@api_view(['PUT'])
+# @permission_classes([IsAdminUser])
+def updateBook(request, pk):
+    data = request.data
+    book = BookDetails.objects.get(book_id=pk)
+
+    aid = Author.objects.get(author_id=int(data['author_id']))
+    cid = CategoryDetails.objects.get(category_id=int(data['category_id']))
+
+    book.ISBN = data['isbn']
+    book.book_title = data['book_title']
+    book.image = data['image']
+    book.publication_year = data['publication_year']
+    book.language = data['language']
+    book.sale_price = data['sale_price']
+    book.quantity_for_sale = data['quantity_for_sale']
+    book.author_id = aid
+    book.category_id = cid
+
+    book.save()
+
+    serializer = BookDetailsSerializer(book, many=False)
     return Response(serializer.data)

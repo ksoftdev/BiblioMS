@@ -17,4 +17,8 @@ urlpatterns = [
     path('categories/', views.getCategories, name="categories"),
 
     path('categories/create/', views.createCategory, name="create-category"),
+
+    path('books/delete/<str:pk>/', views.deleteBook, name="delete-book"),
+
+    path('books/update/<str:pk>/', views.updateBook, name="update-book"),
 ]
