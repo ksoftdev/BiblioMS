@@ -93,7 +93,7 @@ HEROKU = {
 
 LOCAL = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'biblioms-db',
         'USER': 'postgres',
         'PASSWORD': '',
@@ -109,11 +109,9 @@ SQLITE = {
     }
 }
 
-# Are we on production?
-if os.getcwd() == '/app':
-    DATABASES = HEROKU
-else:
-    DATABASES = SQLITE
+
+DATABASES = HEROKU
+
 
 
 # Password validation
