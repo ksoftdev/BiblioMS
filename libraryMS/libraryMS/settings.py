@@ -107,7 +107,7 @@ SQLITE = {
     }
 }
 
-DATABASES = SQLITE
+DATABASES = HEROKU
 
 
 # Password validation
